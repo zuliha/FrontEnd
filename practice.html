@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+<h2>自定义列表</h2>
+<dl>
+    <dt>关注我们</dt>
+    <dd>新浪微博</dd>
+    <dd>官方微信</dd>
+    <dd>联系我们</dd>
+</dl>
+<form>
+    <!-- maxlength 规定输入字段的字符的最大长度 -->
+    用户名：<input type="text" name="username" value="请输入用户名" maxlength="6"> <br>
+    <!-- password 密码框 用户看不见输入的密码 -->
+    密码：<input type="password" name="pwd"> <br>
+    <!-- radio 单选按钮 可以实现多选一 -->
+    <!-- name是表单元素名字，这里性别单选按钮必须有相同的名字name才能实现多选一 -->
+    <!-- 单选按钮和复选框可以设置checked属性，当页面打开的时候就可以默认选中这个按钮 -->
+    <!-- label 标签的for属性应当与相应元素的id属性相同 -->
+    性别:<label for="sex">男</label><input type="radio" name="sex" id="sex" value="男">女<input type="radio" name="sex"
+                                                                                           value="女"
+                                                                                           checked="checked"><br>
+    <!-- checkbox 复选框 实现多选 -->
+    爱好：运动 <input type="checkbox" name="hobby" value="运动">音乐<input type="checkbox" name="hobby" value="音乐"
+                                                                  checked="checked"><br>
+    <input type="submit"> <input type="reset"><br>
+    <!-- 文件域 用于上传文件 -->
+    上传头像： <input type="file"><br> 籍贯：
+    <select>
+        <option>甘肃</option>
+        <!-- selected 当前即为默认选中项 -->
+        <option selected="selected">北京</option>
+        <option value="">上海</option>
+    </select> <br> 今日反馈： <textarea></textarea>
+</form>
+
+
+</body>
+
+</html>
