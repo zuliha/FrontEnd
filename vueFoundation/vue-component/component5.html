@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>组件data函数</title>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+    </div>
+    <template id='cpn'>
+        <div>
+            <h2>{{title}}</h2>
+            <p>我是内容</p>
+        </div>
+    </template>
+
+</body>
+<script>
+    Vue.component('cpn', {
+        template: '#cpn',
+        // 组件对象也有data属性，但必须为函数，函数返回一个对象，对象内部保存着数据
+        data() {
+            return {
+                title: '我是标题2'
+            }
+        }
+    })
+    const app = new Vue({
+        el: '#app',
+        data: { //组件不能直接访问vue实例中的data,
+            title: '我是标题1'
+        }
+
+    })
+</script>
+
+</html>

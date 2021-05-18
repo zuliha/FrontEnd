@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../pictureBrowser/index.css">
+</head>
+
+<body>
+    <div id="mask">
+        <div class="center">
+            <h2 class="title">
+                李敏镐图册
+            </h2>
+            <!-- 图片 -->
+            <img :src="imgArr[index]">
+            <!-- 左箭头 -->
+            <a href="javascript:void(0)" v-show="index!=0" @click="prev" class="left">
+                <img src="../pictureBrowser/img/prev.png">
+            </a>
+            <!-- 右箭头 -->
+            <a href="javascript:void(0)" v-show="index<imgArr.length-1" @click="next" class="right">
+                <img src="../pictureBrowser/img/next.png">
+            </a>
+
+        </div>
+    </div>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el: "#mask",
+            data: {
+                imgArr: ["../pictureBrowser/img/L1.jpg", "../pictureBrowser/img/L2.jpg", "../pictureBrowser/img/L3.jpg", "../pictureBrowser/img/L4.jpg"],
+                index: 0,
+            },
+            methods: {
+                prev: function() {
+                    this.index--;
+                },
+                next: function() {
+                    this.index++;
+
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

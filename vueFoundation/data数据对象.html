@@ -1,0 +1,101 @@
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data数据对象与指令</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>
+            {{school.name}} {{school.mobile}}
+        </h3>
+        <ul>
+            <li v-for="item in campus">{{item}}</li>
+        </ul>
+
+        <button @click="btnclick">按钮</button>
+
+
+        <!-- 比较v-text和v-html -->
+        <h3 v-text="content"></h3>
+        <h3 v-html="content"></h3>
+        <!-- v-pre 将标签内的内容原封不动展示 -->
+        <h3 v-pre>{{message}}</h3>
+
+        <!-- 对象语法：class后面跟的是一个对象 -->
+        <h2 class="title" v-bind:class="{active:isActive,line:isLine}">{{message}}</h2>
+        <h2 class="title" v-bind:class="getClass">{{message}}</h2>
+        <!-- 动态绑定style -->
+        <p :style="{color:finalColor}">{{message}}</p>
+        <p>{{fullName}}</p>
+        <!-- const的含义是指向的对象不能修改，但对象的属性可以修改 -->
+
+        <!-- v-model修饰符 -->
+        <!-- lazy 让数据失去焦点或回车时改变 
+            trim 过滤内容左右两边的空格-->
+        <input type="text" v-model.lazy="message2">
+        <p>{{message2}}</p>
+
+    </div>
+
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            school: {
+                name: '哈尔滨理工大学',
+                mobile: '123456',
+            },
+            campus: ["西区", "南区", "荣成"],
+            message: 'hello world',
+            message2: 'good',
+            content: "<a href='http://www.baidu.com'>百度</a>",
+            isActive: 'true',
+            isLine: 'true',
+            finalColor: 'red',
+            firstName: 'Nian',
+            lastName: 'Gu',
+        },
+        methods: {
+            getClass: function() {
+                return {
+                    active: this.isActive,
+                    line: this.isLine
+                }
+            },
+            btnclick() {
+                // 数组中的响应式方法
+                // this.campus.push('东区'); //1.在数组最后添加元素
+                // this.campus.pop();//2.删除数组中的最后一个元素
+                // this.campus.shift(); //3.删除数组中的第一个元素
+                // this.campus.unshift('东区'); //4.在数组最前面添加元素
+                /*删除、替换(第二个参数传入要删除、替换几个元素)
+                插入元素(第二个参数传入0)
+                splice(start,num,value)*/
+                // this.campus.splice(1, 0, '东区');
+                // this.campus.sort()//5.排序
+                // this.campus.reverse() //6.反转
+
+                // 通过索引值改变数组中的值不是响应式的
+                this.campus[0] = '东区'
+
+            }
+
+        },
+        computed: { //计算属性
+            fullName: function() {
+                return this.firstName + '' + this.lastName;
+            }
+
+        },
+    })
+</script>
+
+</html>

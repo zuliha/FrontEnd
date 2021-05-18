@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS笔记</title>
+    <style>
+        h1 {
+            /* 文本属性 */
+            text-align: center;
+            /*对齐方式*/
+            text-decoration: underline;
+            /*装饰文本*/
+        }
+
+        .red {
+            color: red;
+        }
+
+        #pink {
+            color: pink;
+        }
+
+        em {
+            font-style: normal;
+        }
+
+        .complex {
+            font: italic 700 16px 'microsoft yahei';
+            /* 行间距 */
+            line-height: 30px;
+        }
+
+        .one a:link {
+            color: #333;
+            text-decoration: none;
+        }
+
+        .two a:visited {
+            color: orange;
+        }
+
+        .three a:hover {
+            color: skyblue;
+        }
+
+        .four a:active {
+            color: green;
+        }
+
+        input:focus {
+            background-color: greenyellow;
+        }
+
+        .transform1 {
+            width: 220px;
+            height: 30px;
+            background-color: bisque;
+            display: block;
+        }
+
+        .transform2 {
+            width: 220px;
+            height: 50px;
+            background-color: aquamarine;
+            display: inline;
+        }
+
+        .transform3 {
+            width: 220px;
+            height: 50px;
+            background-color: gold;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+<h1>CSS基础选择器</h1>
+<p>选择器分为基础选择器和复合选择器</p>
+
+<p>基础选择器：标签选择器，类选择器，id选择器，通配符选择器</p>
+<h2>类选择器</h2>
+<p class="red">在class属性中可以写多个类名，中间用空格分开.类选择器可以多次调用</p>
+
+<h2>id选择器</h2>
+<div id="pink">样式#定义，结构id调用，只能调用一次</div>
+
+<h2>通配符选择器</h2>
+<p>通配符选择器用*定义不需要调用，自动给所有的元素使用样式</p>
+
+<h2>字体属性</h2>
+<em>让倾斜的字体变得不倾斜</em>
+<p class="complex">复合属性的顺序：font-style font-weight font-size/line-height font-family <br>不需要设置的属性可以省略，但必须保留font-size和font-family属性，否则font属性将不起作用
+</p>
+
+<h2>CSS的三种样式表</h2>
+<p>1.内部样式表：在HTML页面内部写样式，但是单独写到style标签内部</p>
+<p style="color: plum;">2.行内样式表：在元素标签内部的style属性中设置，适合于修改简单样式</p>
+<p>3.外部样式表：样式单独写到CSS文件中，之后把CSS文件引入到HTML页面中使用</p>
+
+<h2>复合选择器：后代选择器，子选择器，并集选择器，伪类选择器</h2>
+<p>后代选择器</p>
+<p>又称包含选择器，可以选择父元素里面的子元素。元素1和元素2用空格隔开</p>
+
+<p>子选择器</p>
+<p>只选择某元素的最近一级子元素。元素1和元素2用>隔开</p>
+
+<p>并集选择器</p>
+<p>可以选择多组标签，同时为他们定义相同的样式。元素1和元素2用,隔开</p>
+
+<p>伪类选择器</p>
+<p>用于向某些选择器添加特殊的效果。用冒号：表示</p>
+<p>链接伪类选择器</p>
+<p class="one"><a href="#">a:link 未访问的链接</a></p>
+<p class="two"><a href="#">a:visited 访问过的链接</a></p>
+<p class="three"><a href="#">a:hover 选择鼠标经过的链接</a></p>
+<p class="four"><a href="#">a:active 选择鼠标正在按下还没有弹起鼠标的那个链接</a></p>
+<p>focus伪类选择器</p>
+<input type="text">
+
+<h2>元素显示模式</h2>
+<img src="summary1.png">
+
+<h2>显示模式的转换</h2>
+<a class="transform1" href="#">将行内元素a转换为块级元素</a>
+<div class="transform2">块级元素转换为行内元素</div>
+<span class="transform3">行内元素转换为行内块元素</span>
+
+
+</body>
+
+</html>

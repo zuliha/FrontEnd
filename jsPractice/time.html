@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.格式化日期年月日星期
+        var date = new Date();
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1; //返回的月份小一个月，记得加1
+        var dates = date.getDate();
+        var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        var day = date.getDay(); //周日返回的是0
+        console.log('今天是：' + year + '年' + month + '月' + dates + '日' + arr[day]);
+
+        //2.格式化日期时分秒
+        function getTime() { //封装一个时间函数
+            var time = new Date();
+            var h = time.getHours();
+            h = h < 10 ? '0' + h : h;
+            var m = time.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            var s = time.getSeconds();
+            s = s < 10 ? '0' + s : s;
+            return h + ':' + m + ':' + s;
+        }
+        console.log(getTime());
+
+        //3.获取时间戳方法(毫秒数)    距离1970.1.1过了多少毫秒
+        var date = new Date();
+        console.log(date.valueOf());
+        console.log(date.getTime());
+        //常用的简单方法
+        var date1 = +new Date();
+        console.log(date1);
+        //H5新增的 获得总毫秒数的方法
+        console.log(Date.now());
+
+
+
+
+        //4.倒计时案例
+        function countDown(time) {
+            var nowTime = +new Date();
+            var inputTime = +new Date(time);
+            var times = (inputTime - nowTime) / 1000; //剩余时间总毫秒转换为总秒数
+            var d = parseInt(times / 60 / 60 / 24);
+            d = d < 10 ? '0' + d : d;
+            var h = parseInt(times / 60 / 60 % 24);
+            h = h < 10 ? '0' + h : h;
+            var m = parseInt(times / 60 % 60);
+            m = m < 10 ? '0' + m : m;
+            var s = parseInt(times % 60)
+            s = s < 10 ? '0' + s : s;
+            return d + '天' + h + '时' + m + '分' + s + '秒';
+        }
+        console.log(countDown('2021-5-10 22:00:00'));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

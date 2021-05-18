@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //1.利用对象字面量创建对象{}
+        // var obj={};创建了一个空对象
+        var obj = { //里面的属性或方法采用键值对的形式   键 属性名 : 值 属性值
+            name: '张三', //多个属性或方法中间用逗号隔开
+            age: 18,
+            sex: '男',
+            sayHi: function() { //方法冒号后跟匿名函数
+                console.log('hi~');
+            }
+        }
+        console.log(obj.name);
+        console.log(obj['age']);
+
+        //利用for...in遍历对象
+        for (var k in obj) {
+            console.log(k); //得到属性名
+            console.log('---------------------------------------');
+            console.log(obj[k]); //得到属性值
+        }
+
+        //2.利用new Object创建对象
+        var obj2 = new Object(); //创建了一个空对象
+        obj2.name = '李四'; //利用等号赋值的方法，添加属性和方法
+        obj2.age = 19;
+        obj2.sayHi2 = function() {
+            console.log('hi2~')
+        }
+        obj2.sayHi2();
+
+
+        //3.利用构造函数创建对象
+        function Star(name, age, sex) { //构造函数名首字母要大写
+            this.name = name; //属性和方法前必须加this
+            this.age = age;
+            this.sex = sex;
+            this.sing = function(song) {
+                console.log(song);
+            }
+        } //利用构造函数创建对象的过程称为对象的实例化
+        var ldh = new Star('刘德华', 55, '男'); //调用函数返回的是一个对象
+        var zxy = new Star('张学友', 52, '男');
+        console.log(ldh.name);
+        ldh.sing('忘情水');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

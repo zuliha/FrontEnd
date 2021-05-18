@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>JS组成</h1>
+    <img src="../jsPractice/img/js1.png">
+    <p>ECMAScript:是一门编程语言，它往往被称为JavaScript(网景公司)或Jscript(微软公司)，后两者实际是其实现和扩展</p>
+    <p>DOM:(Document Objrct Model,文档对象模型)，是处理可扩展标记语言的标准编程接口，可对页面上的元素进行操作</p>
+    <p>BOM:(Browser Object Model,浏览器对象模型)，提供了独立与内容的，可以与浏览器窗口进行互动的对象结构。可操作浏览器窗口</p>
+    <h5>js的变量数据类型是只有程序在运行过程中，根据等号右边的值来确定的</h5>
+    <h5>prompt取过来的值是字符型的</h5>
+    <h1>流程控制</h1>
+    <p>有三种：顺序结构，分支结构(if)和循环结构</p>
+    <h1>预解析</h1>
+    <h5>1.js引擎运行js分为两步：预解析，代码执行</h5>
+    <p>(1).预解析 js引擎会把js里所有的var还有function提升到当前作用域的最前面</p>
+    <p>(2).代码执行 按照代码书写的顺序从上往下执行</p>
+    <h5>2.预解析分为变量预解析(变量提升)和函数预解析(函数提升)</h5>
+    <p>(1.)变量提升：把所有的变量声明提升到当前作用域的最前面 不提升赋值操作</p>
+    <p>(2.)函数提升：把所有的函数声明提升到当前作用域的最前面 不调用函数</p>
+    <h1>内置对象</h1>
+    <p>JavaScript的3种对象：自定义对象、内置对象、浏览器对象</p>
+
+</body>
+<script>
+    // 数字型转换为字符串型
+    var num = 10;
+    console.log(typeof num)
+        //1.变量.toString   
+    var str = num.toString();
+    console.log(num) //数字型蓝色
+    console.log(str) //字符串型黑色
+        //2.String(变量)
+    console.log(String(num))
+        //3.变量+'',字符串拼接，隐式转换
+    console.log(num + '')
+
+    //字符串型转换为数字型
+    var str = '3.14';
+    //1.parsrInt(变量)
+    console.log(parseInt(str)); //变为数字型是蓝色，取整，不会进位
+    console.log(parseInt('120px')); //会去掉px单位
+    //2.parseFloat(变量)
+    console.log(parseFloat(str)); //还是小数3.14
+    //3.Number(变量)
+    console.log(Number(str));
+    //用算数运算 - * /,隐式转换
+    console.log('12' - 0);
+    //转换为布尔型，boolean()函数，表示空，否定的值为false
+
+    //arguments 展示形式是一个伪数组，里面存储了所有传递过来的实参
+    function fn() {
+        console.log(arguments)
+    }
+    fn(1, 2, 3);
+    fn(1, 2, 3, 4, 5, 6, 7);
+
+    // 高阶函数的使用
+    const nums = [10, 248, 34, 55, 632, 5, 302]
+        // 1.filter函数
+    let newNums = nums.filter(function(n) {
+        return n < 100;
+    })
+    console.log('小于100的有：' + newNums);
+    // 2.map函数
+    let newNums2 = newNums.map(function(n) {
+        return n * 2;
+    })
+    console.log(newNums2);
+    //3. reduce函数
+</script>
+
+</html>

@@ -1,0 +1,92 @@
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HELLO VUE</title>
+    <style>
+        .active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- v-bind 动态绑定属性 -->
+        <span v-bind:title="message1">
+            鼠标悬停几秒钟查看此处动态绑定的提示信息！
+          </span>
+        <p v-if="seen"> you can see me!</p>
+        <ul>
+            <!-- item 是变量 -->
+            <li v-for="item in List">
+                <!-- Mustache语法——双大括号 -->
+                {{item}}
+            </li>
+        </ul>
+        <!-- v-model 指令，实现表单输入和应用状态之间的双向绑定。 -->
+        <p>{{message2}}</p>
+        <input v-model="message2">
+
+        <!-- 计数器案例 -->
+        <h4>当前计数:{{counter}}</h4>
+        <div>
+            <button @click="add">+</button>
+            <button v-on:click="reduce">-</button>
+        </div>
+
+        <!-- 登录切换案列 -->
+        <span v-if="isUser">
+            <label for="username">用户账号</label>
+            <!-- placeholder 属性规定可描述输入字段预期值的简短的提示信息
+                key 决定内部是否可以复用  -->
+            <input type="text" id="username" placeholder="用户账号" key="username">  
+        </span>
+        <span v-else>
+            <label for="userEmail">用户邮箱</label>
+            <input type="text" id="userEmail" placeholder="用户邮箱"  key="userEmail">
+        </span>
+        <button @click="isUser=!isUser">切换类型</button>
+
+        <!-- 点击变红 -->
+        <ul>
+            <li v-for="(item,index) in books" :class="{active:currentIndex===index}" @click="liClick(index)">{{item}}</li>
+        </ul>
+
+
+    </div>
+</body>
+
+<script>
+    var app = new Vue({
+        el: '#app', // 用于挂载要管理的元素
+        data: { // 定义数据
+            message1: '页面加载于 ' + new Date().toLocaleString(),
+            seen: true,
+            List: ['睡觉觉', '吃饭饭', '玩玩玩'],
+            message2: 'hello vue',
+            counter: 0,
+            isUser: true,
+            books: ['小王子', '简爱', '白夜行', '围城'],
+            currentIndex: 10,
+        },
+        methods: {
+            add: function() {
+                this.counter++;
+            },
+            reduce: function() {
+                this.counter--;
+            },
+            liClick(index) {
+                this.currentIndex = index;
+            }
+        }
+    })
+</script>
+
+</html>
