@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise的基本使用2</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    new Promise((resolve, reject) => {
+        setTimeout(() => {
+            // 成功的时候调用resolve
+            // resolve('Hello World')
+
+            //失败的时候调用reject
+            reject('error message')
+        }, 1000)
+    }).then((data) => {
+        console.log(data);
+        console.log(data);
+        console.log(data);
+    }).catch((err) => {
+        console.log(err);
+    })
+</script>
+
+</html>

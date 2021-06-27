@@ -1,0 +1,55 @@
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!-- 官网提供的axios在线地址 -->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天气预报</title>
+    <link rel="stylesheet" type="text/css" href="../weatherQuery/index.css">
+</head>
+
+<body>
+    <div class="wrap" id="app">
+        <div class="search_form">
+            <div class="logo">
+                <img src="../weatherQuery/img/logo.png">
+            </div>
+            <div class="form_group">
+                <input type="text" v-model="city" class="input_txt" @keyup.enter="searchWeather" placeholder="输入查询地点 ">
+                <button class="input_sub ">搜索</button>
+            </div>
+            <div class="hotkey ">
+                <a href="javascript:; " @click="changeCity('北京')">北京</a>
+                <a href="javascript:; " @click="changeCity('上海')">上海</a>
+                <a href="javascript:; " @click="changeCity('广州')">广州</a>
+                <a href="javascript:; " @click="changeCity('深圳')">深圳</a>
+            </div>
+        </div>
+        <ul class=" weather_list ">
+            <li v-for="item in weatherList ">
+                <div class="info_type ">
+                    <span class="iconfont ">{{item.type}}</span>
+                </div>
+                <div class="info_temp ">
+                    <b>
+                        {{item.low}}
+                    </b>
+                    <b>
+                        {{item.high}}
+                    </b>
+                </div>
+                <div class="info_date ">
+                    <span>{{item.date}}</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="./main.js "></script>
+
+</html>

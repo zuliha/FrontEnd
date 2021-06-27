@@ -7,8 +7,6 @@ var app = new Vue({
     methods: {
         searchWeather: function() {
             var that = this;
-            // console.log('天气查询');
-            // console.log(this.city);
             //调用接口
             axios.get('http://wthrcdn.etouch.cn/weather_mini?city=' + this.city).then(function(response) {
                 console.log(response.data.data.forecast);
